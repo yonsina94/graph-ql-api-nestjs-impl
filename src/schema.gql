@@ -1,0 +1,60 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateCustomerInput {
+  """Age of the customer"""
+  age: Int!
+
+  """Email of the customer"""
+  email: String!
+
+  """Last name of the customer"""
+  lastName: String!
+
+  """Name of the customer"""
+  name: String!
+}
+
+type Customer {
+  """Age of the customer"""
+  age: Int!
+
+  """Email of the customer"""
+  email: String!
+
+  """Primary key of this field"""
+  id: ID!
+
+  """Last name of the customer"""
+  lastName: String!
+
+  """Name of the customer"""
+  name: String!
+}
+
+type Mutation {
+  createCustomer(createCustomerInput: CreateCustomerInput!): Customer!
+  removeCustomer(id: ID!): Customer!
+  updateCustomer(updateCustomerInput: UpdateCustomerInput!): Customer!
+}
+
+type Query {
+  customer(id: ID!): Customer!
+  customers: [Customer!]!
+}
+
+input UpdateCustomerInput {
+  """Age of the customer"""
+  age: Int
+
+  """Email of the customer"""
+  email: String
+  id: ID!
+
+  """Last name of the customer"""
+  lastName: String
+
+  """Name of the customer"""
+  name: String
+}
