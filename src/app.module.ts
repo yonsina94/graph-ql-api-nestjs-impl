@@ -42,8 +42,8 @@ import appConfig from './config/app.config';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { 
-  constructor(){
+export class AppModule {
+  constructor() {
     console.log(
       `dirname PATH: ${join(
         __dirname,

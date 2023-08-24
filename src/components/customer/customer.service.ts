@@ -10,7 +10,7 @@ export class CustomerService {
   constructor(
     @InjectRepository(Customer)
     public readonly repo: Repository<Customer>,
-  ) { }
+  ) {}
 
   async create(input: CreateCustomerInput) {
     return this.repo.create(input).save();
