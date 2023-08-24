@@ -24,6 +24,10 @@ export class CustomerService {
     return await this.repo.findOneBy({ id });
   }
 
+  async findbyEmail(email: string) {
+    return await this.repo.findOneBy({ email });
+  }
+
   async update(id: string, input: UpdateCustomerInput) {
     const customer = await this.repo.findOneBy({ id });
 

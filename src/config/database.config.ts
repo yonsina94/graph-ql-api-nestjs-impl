@@ -1,8 +1,11 @@
 import { registerAs } from '@nestjs/config';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export default registerAs('database', () => {
+  let config: TypeOrmModuleOptions = {};
+
   if (process.env.DATABASE_SSL_ENABLE === 'true') {
-    return {
+    config = {
       name: 'default',
       type: process.env.DATABASE_TYPE as any,
       host: process.env.DATABASE_DBHOST,
@@ -19,7 +22,7 @@ export default registerAs('database', () => {
       },
     };
   } else {
-    return {
+    config = {
       name: 'default',
       type: process.env.DATABASE_TYPE as any,
       host: process.env.DATABASE_DBHOST,
@@ -33,4 +36,6 @@ export default registerAs('database', () => {
       migrations: [`${__dirname}/migrations/**/*{.ts,.js}`],
     };
   }
+
+  return config;
 });

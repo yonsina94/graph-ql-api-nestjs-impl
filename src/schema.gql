@@ -40,7 +40,8 @@ type Mutation {
 }
 
 type Query {
-  customer(id: ID!): Customer!
+  customerByEmail(email: String!): Customer!
+  customerByID(id: ID!): Customer!
   customers: [Customer!]!
 }
 

@@ -20,9 +20,14 @@ export class CustomerResolver {
     return this.customerService.findAll();
   }
 
-  @Query(() => Customer, { name: 'customer' })
+  @Query(() => Customer, { name: 'customerByID' })
   findOne(@Args('id', { type: () => ID }) id: string) {
     return this.customerService.findOne(id);
+  }
+
+  @Query(() => Customer, { name: 'customerByEmail' })
+  findByEmail(@Args('email', { type: () => String }) email: string) {
+    return this.customerService.findbyEmail(email);
   }
 
   @Mutation(() => Customer)
